@@ -3,11 +3,13 @@ const session = require('express-session');
 const path = require('path');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
+const pug = require('pug');
+const PORT = 3001;
 
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "devu1099",
+  password: "",
   database: "users"
 });
 
@@ -37,10 +39,24 @@ app.get('/',function(req,res){
             title : `hello ${req.session.name}`
         });    
     }else{
-        res.send("you need to log in first");
+        res.render('index',{
+          title:'hello'
+        });
+        // res.send("you need to log in first");
     }
     
 });
+
+// app.get('/',function(req,res){
+//     // if (req.session.loggedin) {
+//     //     res.render('index' , {
+//     //         title : `hello ${req.session.name}`
+//     //     });    
+//     // }else{
+//         res.send('hello') ;
+//     // }
+    
+// });
 
 app.get('/login',function(req,res){
     res.render('login' , {
@@ -81,6 +97,6 @@ app.post('/login',function(req,res){
     // return;
 });
 
-app.listen(3000, function(){
+app.listen(PORT, function(){
     console.log("listening");
 } );

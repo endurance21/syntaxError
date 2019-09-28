@@ -2,18 +2,20 @@
   "name": "syntaxError",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express-session": "^1.16.2",
     "express.js": "^1.0.0",
     "html": "^1.0.0",
     "mysql": "^2.17.1",
+    "nodeman": "^1.1.2",
     "pug": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "repository": {
     "type": "git",
